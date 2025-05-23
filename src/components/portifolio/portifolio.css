@@ -1,0 +1,57 @@
+#portifolio_section {
+    padding: 9% 0;
+}
+.portifolio_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+ }
+.portifolio_item {
+    background: var(--color-bg-variant);
+    padding: 1.3rem;
+    border-radius: 2rem;
+    border: 1px solid var(--transparent);
+    transition: var(--transparent);
+}
+
+.portifolio_item:hover {
+    background: transparent;
+    border: 1px solid var(--color-primary-variant);
+}
+
+.portifolio_img {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: 1.5s all;
+}
+
+.portifolio_img:hover {
+    scale: 1.04;
+    overflow: hidden;
+} 
+
+.portifolio_item > h3 {
+margin: 1.2rem 0 2rem;
+}
+
+.portifolio_cta {
+    gap: 1rem;
+    text-align: center;
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+/* =============== MEDIA QUERRIES (Meduim Devices) =========== */
+@media screen and (max-width: 1024px) {
+    .portifolio_container {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+    }
+ }
+ 
+ /* =============== MEDIA QUERRIES (Small Devices) =========== */
+ @media screen and (max-width: 600px) {
+    .portifolio_container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+ }
