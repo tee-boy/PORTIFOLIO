@@ -3,16 +3,16 @@ import './contact.css';
 import MdOutlineEmail  from  'react-icons/md';
 import BsWhatsapp from  'react-icons/bs';
 import BsInstagram from  'react-icons/bs';
-import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+// import React, { useRef } from 'react';
+import EmailJs from '@emailjs/browser';
 
 const contact = () => {
-  const form = useRef();
+  // const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs
+    EmailJs
       .sendForm('service_qlraxhc', 'template_4pyxn0l', form.current, {
         publicKey: 'AOUrr576y84N2sKQK',
       })
