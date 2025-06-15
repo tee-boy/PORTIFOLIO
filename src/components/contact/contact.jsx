@@ -1,8 +1,8 @@
 // import React from 'react';
 import './contact.css';
-import MdOutlineEmail  from  'react-icons/md';
-import BsWhatsapp from  'react-icons/bs';
-import BsInstagram from  'react-icons/bs';
+import { MdOutlineEmail } from 'react-icons/md';
+import { BsWhatsapp } from  'react-icons/bs';
+import { BsInstagram } from  'react-icons/bs';
 // import React, { useRef } from 'react';
 import EmailJs from '@emailjs/browser';
 
