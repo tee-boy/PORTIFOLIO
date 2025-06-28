@@ -1,13 +1,14 @@
 // import React from 'react';
 import './contact.css';
 import { MdOutlineEmail } from 'react-icons/md';
-import { BsWhatsapp } from  'react-icons/bs';
-import { BsInstagram } from  'react-icons/bs';
-import { useRef } from 'react';
+import { BsWhatsapp } from 'react-icons/bs';
+import { BsInstagram } from 'react-icons/bs';
+import { useRef, useState } from 'react';
 import EmailJs from '@emailjs/browser';
 
 const Contact = () => {
   const form = useRef();
+  const [sentMessage, setSentMessage] = useState(false); // ✅ state to track success
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -19,13 +20,19 @@ const Contact = () => {
       .then(
         () => {
           console.log('SUCCESS!');
+          form.current.reset(); // ✅ reset form
+          setSentMessage(true); // ✅ show success message
+
+          // Hide message after 3 seconds
+          setTimeout(() => {
+            setSentMessage(false);
+          }, 3000);
         },
         (error) => {
           console.log('FAILED...', error.text);
         },
       );
   };
-
 
   return (
     <section id='contact_section'>
@@ -39,21 +46,18 @@ const Contact = () => {
             <h4>Email</h4>
             <h5>tochukwuemmanuel690@ <br /> gmail.com</h5>
             <a href="mailto:tochukwuemmanuel690@gmail.com">Send a Message</a>
-
           </article>
           <article className="contact__option">
             <BsWhatsapp className='contact-options-name' />
             <h4>Whatsapp</h4>
             <h5>+234 912 6195 688</h5>
-            <a href="https://api.whatsapp.com/send?phone=+2349126195688">Send a Message</a>
-
+            <a href="https://alvo.chat/6dMu">Send a Message</a>
           </article>
           <article className="contact__option">
             <BsInstagram className='contact-options-name' />
             <h4>Affix.io</h4>
             <h5>Instagram</h5>
             <a href="">Send a Message</a>
-
           </article>
         </div>
 
@@ -65,9 +69,16 @@ const Contact = () => {
           <textarea name="message" rows="7" placeholder='Your Message' required></textarea>
           <button type='submit' className='btn btn-primary'>Message</button>
         </form>
+
+        {/* ✅ Success message popup */}
+        {sentMessage && (
+          <div className="success-popup">
+            Message sent!
+            <div className="line"></div>
+          </div>
+        )}
        </div>
     </section>
-
   )
 };
 

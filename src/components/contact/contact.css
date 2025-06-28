@@ -58,6 +58,39 @@ input:hover {
     border-color: var(--color-primary-variant);
 }
 
+.success-popup {
+  margin-top: 1rem;
+  background: #4BB543; /* green background */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  position: relative;
+  font-weight: bold;
+  width: fit-content;
+  animation: fadeInOut 10s forwards;
+}
+
+.success-popup .line {
+  height: 3px;
+  background: white;
+  width: 100%;
+  margin-top: 5px;
+  animation: shrinkLine 10s forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes shrinkLine {
+  0% { width: 100%; }
+  100% { width: 0%; }
+}
+
+
 /* =============== MEDIA QUERRIES (Meduim Devices) =========== */
 @media screen and (max-width: 1024px) {
     .container.contact__container {
