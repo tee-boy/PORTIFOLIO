@@ -28,11 +28,11 @@ header {
     left: 0;
     bottom: 3rem;
 }
-
+ 
 .header__socials::after {
     content: '';
     width: 2px;
-    background: var(--color-primary);
+    background: var(--color-light);
     height: 2rem;
 }
 

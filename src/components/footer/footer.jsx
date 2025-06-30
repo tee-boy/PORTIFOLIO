@@ -1,6 +1,5 @@
-import React from 'react'
 import './footer.css';
-import { BsDiscord, BsTwitter, BsInstagram } from  'react-icons/bs';
+import { BsWhatsapp, BsTwitter, BsInstagram } from  'react-icons/bs';
 
 
 const footer = () => {
@@ -9,7 +8,7 @@ const footer = () => {
       <footer> 
         <a href="#" className='footer_logo'>#TOP dev</a>
         <ul className='permalinks'>
-          <li><a href="#">Home</a></li>
+          <li><a href="#home_section">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#services">Services</a></li>
@@ -19,9 +18,9 @@ const footer = () => {
         </ul>
 
         <div className="footer__socials bg-green--600">
-          <a href="https://instagram"><BsInstagram /></a>
-          <a href="https://discord"><BsDiscord /></a>
-          <a href="https://Twitter"><BsTwitter /></a>
+          <a href="https://msng.link/o?teeboi268=ig"><BsInstagram /></a>
+          <a href="https://msng.link/o?teeboi264=ig"><BsWhatsapp /></a>
+          <a href="https://x.com/Tee__Dev"><BsTwitter /></a>
         </div>
 
         <div className="footer__copyright">

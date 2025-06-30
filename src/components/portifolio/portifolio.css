@@ -4,12 +4,13 @@
 .portifolio_container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
+    gap: 1rem;
  }
+
 .portifolio_item {
     background: var(--color-bg-variant);
-    padding: 1.3rem;
-    border-radius: 2rem;
+    padding: 1rem 0.7rem;
+    border-radius: 1rem;
     border: 1px solid var(--transparent);
     transition: var(--transparent);
 }
@@ -20,7 +21,7 @@
 }
 
 .portifolio_img {
-    border-radius: 1.5rem;
+    border-radius: 0.2rem;
     overflow: hidden;
     transition: 1.5s all;
 }
@@ -35,12 +36,27 @@ margin: 1.2rem 0 2rem;
 }
 
 .portifolio_cta {
-    gap: 1rem;
+    gap: 0.5rem;
     text-align: center;
     display: flex;
     margin-bottom: 1rem;
 }
 
+.portifolio_cta > .btn {
+    width: fit-content;
+    padding: 0.5rem;
+}
+
+.portifolio_container > .more {
+    border: none;
+    padding: 0.5rem;
+}
+
+.portifolio_container > .more:hover {
+    padding: 0.5rem;
+    text-decoration: none;
+}
+ 
 /* =============== MEDIA QUERRIES (Meduim Devices) =========== */
 @media screen and (max-width: 1024px) {
     .portifolio_container {

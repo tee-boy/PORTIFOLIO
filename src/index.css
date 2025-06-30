@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=poppins:wght@100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     margin: 0;
     outline: 0;
@@ -20,6 +24,7 @@
     --conatianer-width-lg: 70%;
     --conatianer-width-md: 86%;
     --conatianer-width-sm: 90%;
+    height: 100vh;
 }
 
 html {
@@ -35,9 +40,6 @@ body {
     font-family: poppins, Arial, Helvetica, sans-serif;
     color: var(--color-white);
     line-height: 1.7;
-    /* background-image: url('./asset/background.png'); */
-    /* background-position: center; */
-    /* back */
 }
 
 /* ================== General class style =================== */
@@ -59,7 +61,7 @@ h1 {
 }
 
 section {
-    margin: 2% 0;
+    padding: 10% 0;
 }
 
 section > h2, section > h5 {
@@ -96,10 +98,10 @@ a:hover {
     transition: var(--transition);
 } 
 
-.bnt:hover {
-    background: var(--color-white);
-    color: var(--color-bg);
-    border-color: transparent;
+.btn:hover {
+    color: var(--color-light);
+    border-color: var(--color-primary);
+    transform: translateY(7px);
 }
 
 .btn-primary {
@@ -112,6 +114,70 @@ img {
     width: 100%;
     display: block;
 }
+
+.wavy-text-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10rem;
+  font-weight: bold;
+  color: #7f7f7f;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.wavy-text-watermark span {
+  display: inline-block;
+  animation: waveText 3s ease-in-out infinite;
+}
+
+@keyframes waveText {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-1deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal_content {
+  background: var(--color-light);
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  animation: scaleIn 0.3s ease;
+}
+
+.modal_close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
 
 /* =============== MEDIA QUERRIES (Meduim Devices) =========== */
 @media screen and (max-width: 1024px) {

@@ -1,4 +1,3 @@
-import React from 'react';
 import './nav.css';
 import { AiOutlineHome } from 'react-icons/ai';
 import { AiOutlineUser } from 'react-icons/ai';
@@ -10,7 +9,7 @@ const nav = () => {
 
   return (
     <nav>
-      <a href="#" className = 'active'> <AiOutlineHome /></a>
+      <a href="#header_section" className = 'active'> <AiOutlineHome /></a>
       <a href="#about_section"><AiOutlineUser /></a>
       <a href="#experience_section"><BiBook /></a>
       <a href="#service_section"><RiServiceLine /></a>

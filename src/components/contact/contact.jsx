@@ -1,14 +1,13 @@
-// import React from 'react';
 import './contact.css';
-import { MdOutlineEmail } from 'react-icons/md';
-import { BsWhatsapp } from 'react-icons/bs';
-import { BsInstagram } from 'react-icons/bs';
+import { BsWhatsapp, BsLinkedin, BsInstagram } from 'react-icons/bs';
 import { useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import EmailJs from '@emailjs/browser';
+import MagneticButton from '../../commons/CursorMagnetic';
 
 const Contact = () => {
   const form = useRef();
-  const [sentMessage, setSentMessage] = useState(false); // ✅ state to track success
+  const [sentMessage, setSentMessage] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -20,32 +19,46 @@ const Contact = () => {
       .then(
         () => {
           console.log('SUCCESS!');
-          form.current.reset(); // ✅ reset form
-          setSentMessage(true); // ✅ show success message
-
-          // Hide message after 3 seconds
-          setTimeout(() => {
-            setSentMessage(false);
-          }, 3000);
+          form.current.reset();
+          setSentMessage(true);
+          setTimeout(() => setSentMessage(false), 3000);
         },
         (error) => {
           console.log('FAILED...', error.text);
-        },
+        }
       );
   };
 
   return (
     <section id='contact_section'>
-       <h5>Get In Tourch</h5>  
-       <h2>Contact Me</h2>
+      <motion.h5
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        Get In Touch
+      </motion.h5>
 
-       <div className="container contact__container">
-        <div className="contact__options">
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        Contact Me
+      </motion.h2>
+
+      <div className="container contact__container">
+        <motion.div
+          className="contact__options"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <article className="contact__option">
-            <MdOutlineEmail className='contact-options-name' />
-            <h4>Email</h4>
-            <h5>tochukwuemmanuel690@ <br /> gmail.com</h5>
-            <a href="mailto:tochukwuemmanuel690@gmail.com">Send a Message</a>
+            <BsLinkedin className='contact-options-name' />
+            <h4>LinkedIn</h4>
+            <h5>Tochukwu Emmanuel</h5>
+            <a href="http://www.linkedin.com/in/emmanuel-tochukwu-a447b9273">Send a Message</a>
           </article>
           <article className="contact__option">
             <BsWhatsapp className='contact-options-name' />
@@ -57,29 +70,41 @@ const Contact = () => {
             <BsInstagram className='contact-options-name' />
             <h4>Affix.io</h4>
             <h5>Instagram</h5>
-            <a href="">Send a Message</a>
+            <a href="https://msng.link/o?Affix.io=ig">Send a Message</a>
           </article>
-        </div>
+        </motion.div>
 
-        {/* End of Contact options */}
-
-        <form ref={form} onSubmit={sendEmail}>
+        <motion.form
+          ref={form}
+          onSubmit={sendEmail}
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <input type="text" name='name' placeholder='Your Full Name' required />
           <input type="email" name='email' placeholder='Your Email' required />
           <textarea name="message" rows="7" placeholder='Your Message' required></textarea>
-          <button type='submit' className='btn btn-primary'>Message</button>
-        </form>
 
-        {/* ✅ Success message popup */}
+          <MagneticButton>
+            <button type='submit' className='btn btn-primary'>Message</button>
+          </MagneticButton>
+        </motion.form>
+
         {sentMessage && (
-          <div className="success-popup">
+          <motion.div
+            className="success-popup"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+          >
             Message sent!
             <div className="line"></div>
-          </div>
+          </motion.div>
         )}
-       </div>
+      </div>
     </section>
-  )
+  );
 };
 
 export default Contact;
